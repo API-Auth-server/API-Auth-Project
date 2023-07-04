@@ -2,15 +2,21 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const { route } = require('./routes/router')
+const { authRoute } = require('./routes/auth')
 require('dotenv').config()
 app.use(cors())
+app.use(express.json())
 
 app.get('/' , (req, res) =>{
-     res.status(200).json({
+     console.log(req.body);
+     res.status(201).json({
           message : 'home page '
      })
 })
+
+
 app.use(route)
+app.use(authRoute)
 
 function start(){
      app.listen(4001 , () =>{

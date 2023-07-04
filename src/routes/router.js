@@ -7,6 +7,14 @@ route.get('/test',(req, res)=>{
         message:"test page"
     });
 })
+
+
+
+
+
+
+
+
 module.exports={
     route
 }
