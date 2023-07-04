@@ -5,8 +5,7 @@ const { route } = require('./routes/router')
 const { authRoute } = require('./routes/auth')
 const moviesRoute = require('./routes/movies')
 const tvShowsRoute = require('./routes/TVshows')
-const { seriesRoute } = require('./routes/series')
-const { TV_channelRoute } = require('./routes/TV-channel')
+
 require('dotenv').config()
 app.use(cors())
 app.use(express.json())
@@ -23,8 +22,6 @@ app.use(route)
 app.use(authRoute)
 app.use(moviesRoute)
 app.use(tvShowsRoute)
-app.use(seriesRoute)
-app.use(TV_channelRoute)
 
 function start(){
      app.listen(4001 , () =>{
