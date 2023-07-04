@@ -5,6 +5,7 @@ const { route } = require('./routes/router')
 const { authRoute } = require('./routes/auth')
 const moviesRoute = require('./routes/movies')
 const tvShowsRoute = require('./routes/TVshows')
+
 require('dotenv').config()
 app.use(cors())
 app.use(express.json())
@@ -21,6 +22,7 @@ app.use(route)
 app.use(authRoute)
 app.use(moviesRoute)
 app.use(tvShowsRoute)
+
 function start(){
      app.listen(4001 , () =>{
           console.log('up and runung on port 4001');
