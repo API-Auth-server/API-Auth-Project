@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const { route } = require('./routes/router')
 require('dotenv').config()
-
 app.use(cors())
 
 app.get('/' , (req, res) =>{
@@ -10,7 +10,7 @@ app.get('/' , (req, res) =>{
           message : 'home page '
      })
 })
-
+app.use(route)
 
 function start(){
      app.listen(4001 , () =>{
