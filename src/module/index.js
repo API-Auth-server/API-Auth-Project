@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
+const Collection = require("../collection/collection");
 require('dotenv').config()
 
 

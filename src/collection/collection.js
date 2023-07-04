@@ -14,7 +14,9 @@ class Collection {
   constructor(model) {
     this.model = model;
   }
-  async read(id, option = {}) {
+
+  // read all or one 
+  async read(id) {
     console.log(this.model)
     let record = null;
     if (id) {
@@ -55,6 +57,7 @@ async create(obj) {
   async delete(id) {
     try {
       if (!id) throw new Error(`The id you send is not exists!!!`)
+      
       const record = await this.read(id)
       console.log(record)
       const deletedRecord = await this.model.destroy({ where: { id } });
@@ -65,8 +68,6 @@ async create(obj) {
       return e;
     }
   }
-  
-
 
 }
 
