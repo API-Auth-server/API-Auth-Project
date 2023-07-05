@@ -6,6 +6,8 @@ const User = require("../src/module/user.model");
 const muckReq = supertest(app)
 require('dotenv').config()
 const base64 = require('base-64')
+process.env.SECRET = "TEST_SECRET";
+
  
 beforeAll(async () =>{
     await dataBase.sync()
