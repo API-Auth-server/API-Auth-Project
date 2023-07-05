@@ -7,11 +7,11 @@ require('dotenv').config()
 
 
 
-beforeAll(async () =>{
-    await dataBase.sync()
-})
-afterAll(async () =>{
-    await dataBase.drop()
-})
+// beforeAll(async () =>{
+//     await dataBase.sync()
+// })
+// afterAll(async () =>{
+//     await dataBase.drop()
+// })
 
 
