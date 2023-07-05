@@ -7,6 +7,6 @@ module.exports = (req , res , next) =>{
           User.CheckTokenFN(header).then(data =>{
                req.user = data
                next()
-          }).catch(err => next())
+          }).catch(err => console.log('errr', err))
      }
 }
