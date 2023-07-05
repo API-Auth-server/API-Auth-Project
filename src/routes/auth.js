@@ -7,10 +7,10 @@ const checkToken = require('../middleware/checkToken');
 const checkCapabilities = require('../middleware/checkCapabilities');
 
 authRoute.post('/signup',async (req , res) =>{
-     const {username, password} = req.body
+     const {username, password , role} = req.body
      const bcryptPass = await bcrypt.hash(password , 5)
 
-     const signup = await User.create({username :username , password: bcryptPass})
+     const signup = await User.create({username :username , password: bcryptPass, role : role})
      res.status(201).json({
          message:"signup page",
          signup : signup

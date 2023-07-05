@@ -2,7 +2,7 @@ const { dataBase, DataTypes } = require(".");
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 
-const User = dataBase.define("user_project" , {
+const User = dataBase.define("user_project_3" , {
      username : {
           type : DataTypes.STRING,
           allowNull : false
@@ -17,8 +17,8 @@ const User = dataBase.define("user_project" , {
                return jwt.sign({username : this.username , password : this.password , role : this.role} , process.env.SECRET)
           }
      },
-     role : {
-          type : DataTypes.ENUM("user", "writer" , "editor" , "admin"),
+     role: {
+          type : DataTypes.ENUM("user", "maker" , "editor" , "admin"),
           defaultValue : 'user'
      },
      capabilities:{
@@ -26,10 +26,11 @@ const User = dataBase.define("user_project" , {
           get() {
                const acl = {
                     user:['read'],
-                    writer:['read', 'create'],
+                    maker:['read', 'create'],
                     editor:['read', 'create' , 'update'],
                     admin:['read', 'create' , 'update', 'delete']
                }
+               console.log(acl[this.role]);
                return acl[this.role]
           }
      }
